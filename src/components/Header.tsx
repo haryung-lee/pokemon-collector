@@ -7,7 +7,10 @@ export default function Header() {
 }
 
 const HeaderComponent = styled.header`
-  height: 10rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 6rem;
   ${fonts.h1};
   color: ${colors.mint};
   background-color: ${colors.darkGreen};
