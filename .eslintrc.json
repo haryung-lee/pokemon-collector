@@ -18,7 +18,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint", "react-hooks", "cypress"],
+  "plugins": ["react", "@typescript-eslint", "react-hooks"],
   "rules": {
     "linebreak-style": 0,
     "import/prefer-default-export": 0,
@@ -37,13 +37,7 @@
     "@typescript-eslint/explicit-module-boundary-types": 0,
     "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    "cypress/no-assigning-return-values": "error",
-    "cypress/no-unnecessary-waiting": "error",
-    "cypress/assertion-before-screenshot": "warn",
-    "cypress/no-force": "warn",
-    "cypress/no-async-tests": "error",
-    "cypress/no-pause": "error"
+    "react-hooks/exhaustive-deps": "warn"
   },
   "settings": {
     "import/resolver": {
