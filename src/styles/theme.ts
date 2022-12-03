@@ -5,6 +5,7 @@ export const colors = {
   mint: '#CFFDE1',
   lightGrey: '#A1A1A1',
   grey: '#D9D9D9',
+  white: '#EFEFEF',
 };
 
 export const fonts = {
@@ -26,7 +27,7 @@ export const fonts = {
   `,
   h5: `
     font-size: 1.4rem;
-    font-weight: bold;
+    font-weight: 500;
   `,
   h6: `
     font-size: 1.4rem;
@@ -35,29 +36,12 @@ export const fonts = {
   subtitle1: `
     font-size: 2.4rem;
     font-weight: 500;
-    line-height: 144%;
   `,
-  body: `
-    font-size: 1.4rem;
-    font-weight: 500;
-    line-height: 170%;
-  `,
-  caption1: `
-    font-size: 1.2rem;
-    font-weight: 500;
-  `,
-  caption2: `
-    font-size: 1.2rem;
-    font-weight: bold;
-  `,
-  btn1: `
+  subtitle2: `
+  font-size: 1.6rem;
+  font-weight: 500;
+`,
+  input: `
     font-size: 1.6rem;
-    font-weight: bold;
-    line-height: 1.8rem;
-  `,
-  btn2: `
-    font-size: 1.4rem;
-    font-weight: 500;
-    line-height: 1.6rem;
   `,
 };

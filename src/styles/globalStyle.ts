@@ -46,4 +46,9 @@ export const GlobalStyle = createGlobalStyle`
     display: block;
     max-width: 100%;
   }
+
+  input {
+  border: none;
+  outline: none;
+  }
 `;
