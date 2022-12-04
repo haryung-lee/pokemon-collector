@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import styled from 'styled-components';
+import { Toaster } from 'react-hot-toast';
 import { flexCenter } from 'styles/utils';
 import { fonts, colors } from 'styles/theme';
 
@@ -10,6 +11,7 @@ type Props = {
 export default function Layout({ children }: Props) {
   return (
     <>
+      <Toaster />
       <Header>POCKEMON</Header>
       {children}
     </>

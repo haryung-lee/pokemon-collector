@@ -4,13 +4,16 @@ import { colors, fonts } from 'styles/theme';
 import { flexCenter } from 'styles/utils';
 import { LoadingSkeleton, ErrorSkeleton } from './Skeleton';
 
-export default function PokemonCard({ id }: { id: string }) {
-  const { data, isLoading, isError, isSuccess } = usePokemon(id);
+interface Props {
+  id: string;
+  onClickPokemon: (_e: React.MouseEvent<HTMLDivElement>) => void;
+}
 
-  console.log(data);
+export default function PokemonCard({ id, onClickPokemon }: Props) {
+  const { data, isLoading, isError, isSuccess } = usePokemon(id);
+  if (isError) return <ErrorSkeleton />;
   return (
-    <Pokemon isCursor={isSuccess}>
-      {isError && <ErrorSkeleton />}
+    <Pokemon isCursor={isSuccess} onClick={onClickPokemon}>
       {isLoading && <LoadingSkeleton />}
       {isSuccess && (
         <>
