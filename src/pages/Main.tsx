@@ -32,7 +32,6 @@ export default function Main() {
 }
 
 const Contents = styled.main`
-  position: relative;
   width: 27rem;
   height: 100%;
   margin: 0 auto;

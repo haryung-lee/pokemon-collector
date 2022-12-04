@@ -25,11 +25,11 @@ export function ErrorSkeleton() {
 }
 
 const Loading = styled.div`
-  position: fixed;
+  position: absolute;
   top: 0;
   height: 100%;
   width: 100vw;
-  margin: 0;
+  z-index: 3;
   background-color: rgba(0, 0, 0, 0.7);
 `;
 
