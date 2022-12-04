@@ -41,6 +41,10 @@ export const fonts = {
   font-size: 1.6rem;
   font-weight: 500;
 `,
+  subtitle3: `
+  font-size: 1.4rem;
+  font-weight: 500;
+  `,
   input: `
     font-size: 1.6rem;
   `,

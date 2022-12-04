@@ -1,17 +1,22 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import './fonts/font.css';
-import { GlobalStyle } from './styles/globalStyle';
-import Main from './pages/Main';
+import { QueryClientProvider, QueryClient } from 'react-query';
+import 'fonts/font.css';
+import { GlobalStyle } from 'styles/globalStyle';
+import Main from 'pages/Main';
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    <Router>
-      <GlobalStyle />
-      <Routes>
-        <Route path="/" element={<Main />} />
-      </Routes>
-    </Router>
+    <QueryClientProvider client={queryClient}>
+      <Router>
+        <GlobalStyle />
+        <Routes>
+          <Route path="/" element={<Main />} />
+        </Routes>
+      </Router>
+    </QueryClientProvider>
   );
 }
 
