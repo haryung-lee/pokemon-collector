@@ -15,7 +15,7 @@ function LoadingSkeleton() {
 
 function ErrorSkeleton() {
   return (
-    <Pokemon>
+    <Pokemon isCursor={false}>
       <ErrorImage src={Error} alt="error image" />
       <ErrorText>
         Sorry man :( <br />
@@ -72,7 +72,7 @@ export default function PokemonCard({ id }: { id: string }) {
 
   console.log(data);
   return (
-    <Pokemon>
+    <Pokemon isCursor={isSuccess}>
       {isError && <ErrorSkeleton />}
       {isLoading && <LoadingSkeleton />}
       {isSuccess && (
@@ -99,27 +99,36 @@ export default function PokemonCard({ id }: { id: string }) {
   );
 }
 
-const Pokemon = styled.div`
-  height: 40rem;
-  width: 30rem;
-  padding: 3rem;
+const Pokemon = styled.div<{ isCursor: boolean }>`
+  margin-top: 3rem;
+  height: 80%;
+  padding: 2rem;
   background-color: ${colors.darkGreen};
   border-radius: 1rem;
   display: flex;
   align-items: center;
   flex-direction: column;
+  transition: all 0.5s ease-in-out;
+  ${(props) =>
+    props.isCursor &&
+    `&:hover {
+      background: palevioletred;
+      color: white;
+    }
+    cursor: pointer;
+    `}
 `;
 
 const PokemonImage = styled.img`
-  width: 18rem;
-  height: 18rem;
+  min-width: 18rem;
+  min-height: 18rem;
   object-fit: contain;
 `;
 
 const DataComponent = styled.ul`
   ${flexCenter};
   gap: 1rem;
-  margin-top: 3rem;
+  margin-top: 2rem;
 `;
 
 const Data = styled.li`

@@ -25,7 +25,7 @@ export default function Search({ input, onChange, onSubmit }: Props) {
 
 const Form = styled.form`
   height: 4rem;
-  width: 30rem;
+  width: 100%;
   background-color: ${colors.white};
   border-radius: 1rem;
   display: flex;
