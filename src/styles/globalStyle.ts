@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { colors } from './theme';
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -21,7 +22,7 @@ export const GlobalStyle = createGlobalStyle`
     height: 100%;
     font-size: 62.5%;
     font-family: IBMPlexSansKRRegular, sans-serif;
-    letter-spacing: -0.01rem;
+    background-color: ${colors.yellow};
   }
 
   #__next {
