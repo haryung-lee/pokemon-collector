@@ -101,7 +101,7 @@ export default function PokemonCard({ id }: { id: string }) {
 
 const Pokemon = styled.div<{ isCursor: boolean }>`
   margin-top: 3rem;
-  height: 80%;
+  height: 40rem;
   padding: 2rem;
   background-color: ${colors.darkGreen};
   border-radius: 1rem;
@@ -120,8 +120,8 @@ const Pokemon = styled.div<{ isCursor: boolean }>`
 `;
 
 const PokemonImage = styled.img`
-  min-width: 18rem;
-  min-height: 18rem;
+  width: 20rem;
+  height: 20rem;
   object-fit: contain;
 `;
 
