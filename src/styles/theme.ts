@@ -34,15 +34,15 @@ export const fonts = {
     font-size: 1.4rem;
     font-weight: 500;
   `,
-  subtitle1: `
+  text1: `
     font-size: 2.4rem;
     font-weight: 500;
   `,
-  subtitle2: `
+  text2: `
   font-size: 1.6rem;
   font-weight: 500;
 `,
-  subtitle3: `
+  text3: `
   font-size: 1.4rem;
   font-weight: 500;
   `,

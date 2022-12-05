@@ -62,6 +62,6 @@ const ErrorImage = styled.img`
 
 const ErrorText = styled.p`
   margin-top: 5rem;
-  ${fonts.subtitle2};
+  ${fonts.text2};
   color: ${colors.mint};
 `;

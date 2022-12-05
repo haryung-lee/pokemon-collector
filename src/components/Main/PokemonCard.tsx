@@ -76,7 +76,7 @@ const Data = styled.li`
   width: 7rem;
   height: 7rem;
   background-color: ${colors.green};
-  ${fonts.subtitle3};
+  ${fonts.text3};
   ${flexCenter};
   color: ${colors.mint};
   flex-direction: column;
@@ -84,7 +84,7 @@ const Data = styled.li`
 
 const PokemonName = styled.p`
   color: ${colors.white};
-  ${fonts.subtitle1};
+  ${fonts.text1};
   margin-top: 1rem;
 `;
 
