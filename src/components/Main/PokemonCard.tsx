@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { colors, fonts } from 'styles/theme';
 import { flexCenter } from 'styles/utils';
 import { usePokemon } from 'hooks/usePokemon';
+import PokemonLogo from 'assets/PokemonLogo.png';
 import PokemonImage from './PokemonImage';
 
 interface Props {
@@ -13,21 +14,27 @@ interface Props {
 export default function PokemonCard({ id, onClickPokemon }: Props) {
   const { data: pokemon } = usePokemon(id);
   return (
-    <Pokemon isCursor onClick={onClickPokemon}>
-      <PokemonImage sprites={pokemon?.sprites} />
-      <PokemonName>{pokemon?.name}</PokemonName>
-      <DataComponent>
-        <Data>
-          EXP
-          <Value>{pokemon?.base_experience}</Value>
-        </Data>
-        <Data>
-          WEIGHT<Value>{pokemon?.weight}</Value>
-        </Data>
-        <Data>
-          HEIGHT<Value>{pokemon?.height}</Value>
-        </Data>
-      </DataComponent>
+    <Pokemon isCursor={id !== ''} onClick={onClickPokemon}>
+      {!id ? (
+        <img src={PokemonLogo} alt="logo" />
+      ) : (
+        <>
+          <PokemonImage sprites={pokemon?.sprites} />
+          <PokemonName>{pokemon?.name}</PokemonName>
+          <DataComponent>
+            <Data>
+              EXP
+              <Value>{pokemon?.base_experience}</Value>
+            </Data>
+            <Data>
+              WEIGHT<Value>{pokemon?.weight}</Value>
+            </Data>
+            <Data>
+              HEIGHT<Value>{pokemon?.height}</Value>
+            </Data>
+          </DataComponent>
+        </>
+      )}
     </Pokemon>
   );
 }

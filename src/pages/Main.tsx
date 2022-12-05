@@ -1,6 +1,5 @@
 import React, { useState, Suspense } from 'react';
 import styled from 'styled-components';
-import toast from 'react-hot-toast';
 import { useQueryErrorResetBoundary } from 'react-query';
 import { ErrorBoundary } from 'react-error-boundary';
 
@@ -11,20 +10,13 @@ import { ErrorSkeleton, LoadingSkeleton } from 'components/Main/Skeleton';
 import PokemonBall from 'assets/PokemonBall2.png';
 import PokemonLogo from 'assets/PokemonLogo.png';
 import { POKEMON } from 'constants/pokemon';
-// import { usePokemon } from 'hooks/usePokemon';
-
-// interface Props {
-//   isRefresh?: boolean;
-//   fallback: React.ElementType;
-//   children: ReactNode;
-//   onReset?: () => void;
-//   message?: string;
-// }
+import { customToast } from 'utils/customToast';
 
 export default function Main() {
   const [input, setInput] = useState<string>('');
   const [id, setId] = useState<string>('');
   const [openSelector, setOpenSelector] = useState<boolean>(false);
+  const { reset } = useQueryErrorResetBoundary();
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput(() => e.target.value);
@@ -37,23 +29,29 @@ export default function Main() {
 
   const onClickPokemon = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
+    if (id === '') {
+      customToast('🤔', 'Please input pokemon ID');
+      return;
+    }
     const pokemon = Object.entries(POKEMON).map((pokemon) => {
       return pokemon[1].ID;
     });
 
     if (pokemon.includes(id)) {
-      toast.success('Collection complete!');
+      if (localStorage.getItem(id)) {
+        customToast('😎', 'You already have this pokemon');
+      } else {
+        customToast('🎉', 'You got a new pokemon');
+      }
       localStorage.setItem(id, 'true');
     } else {
-      toast.error('Not a collection target!');
+      customToast('😓', 'Not a collection target!');
     }
   };
 
   const onClickMyBall = () => {
     setOpenSelector((prev) => !prev);
   };
-
-  const { reset } = useQueryErrorResetBoundary();
 
   const image = Object.entries(POKEMON).map((pokemon) => {
     return localStorage.getItem(pokemon[1].ID)

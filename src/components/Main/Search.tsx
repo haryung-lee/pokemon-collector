@@ -15,7 +15,7 @@ export default function Search({ input, onChange, onSubmit }: Props) {
       <SearchImage width="20" height="20" fill="#A1A1A1" />
       <SearchInput
         type="number"
-        placeholder="input number, then press enter"
+        placeholder="input, then press enter"
         onChange={onChange}
         value={input}
         autoFocus

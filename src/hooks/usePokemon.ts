@@ -21,9 +21,6 @@ interface Pokemon {
 }
 
 const getPokemonById = async (id: string): Promise<Pokemon> => {
-  if (id === '') {
-    throw new Error('id is required');
-  }
   const { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
   return data;
 };
