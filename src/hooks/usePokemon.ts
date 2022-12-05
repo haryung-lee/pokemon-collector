@@ -29,19 +29,10 @@ const getPokemonById = async (id: string): Promise<Pokemon> => {
 };
 
 export const usePokemon = (id: string) => {
-  return useQuery(
-    ['pokemon', id],
-    () =>
-      getPokemonById(id).catch((err) => {
-        if (err.status === 404) {
-          return null;
-        }
-        throw err;
-      }),
-    {
-      refetchOnWindowFocus: false,
-      refetchOnMount: false,
-      refetchOnReconnect: false,
+  return useQuery(['pokemon', id], () => getPokemonById(id), {
+    onError: (error) => {
+      throw error;
     },
-  );
+    enabled: id !== '',
+  });
 };
