@@ -57,8 +57,8 @@ export default function Main() {
         <Selector>
           <Logo src={PokemonLogo} />
           <>
-            {image.map((Image) => {
-              return <Image />;
+            {image.map((Image, index) => {
+              return <Image key={Symbol(index).toString()} />;
             })}
           </>
         </Selector>
@@ -123,7 +123,7 @@ const MyBall = styled.button`
   &:hover {
     transform: translate(-50%, 10%) scale(0.96);
     img {
-      filter: drop-shadow(10px 6px 6px rgba(0, 0, 0, 0.5));
+      filter: drop-shadow(1rem 0.6rem 0.6rem rgba(0, 0, 0, 0.5));
     }
   }
 `;
