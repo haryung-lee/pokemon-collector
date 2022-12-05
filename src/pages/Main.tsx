@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import toast from 'react-hot-toast';
+
 import Search from 'components/Main/Search';
 import Layout from 'components/Layout';
 import PokemonCard from 'components/Main/PokemonCard';

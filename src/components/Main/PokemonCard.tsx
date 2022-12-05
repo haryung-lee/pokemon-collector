@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { usePokemon } from 'hooks/usePokemon';
 import { colors, fonts } from 'styles/theme';
 import { flexCenter } from 'styles/utils';

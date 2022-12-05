@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import Error from 'assets/ErrorImage.png';
 import PokemonBall from 'assets/PokemonBall.png';
 import { colors, fonts } from 'styles/theme';

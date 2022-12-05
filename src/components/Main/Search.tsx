@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { colors, fonts } from 'styles/theme';
 import { ReactComponent as SearchImage } from 'assets/Search.svg';
 
