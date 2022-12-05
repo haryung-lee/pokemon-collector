@@ -25,9 +25,14 @@ export function ErrorSkeleton() {
   );
 }
 
+export function ImageSkeleton() {
+  return <SkeletonImage src={PokemonBall} alt="loading data" />;
+}
+
 const Loading = styled.div`
   position: absolute;
   top: 0;
+  left: 0;
   height: 100%;
   width: 100vw;
   z-index: 3;

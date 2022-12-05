@@ -1,13 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import styled from 'styled-components';
 import toast from 'react-hot-toast';
+import { useQueryErrorResetBoundary } from 'react-query';
+import { ErrorBoundary } from 'react-error-boundary';
 
 import Search from 'components/Main/Search';
 import Layout from 'components/Layout';
 import PokemonCard from 'components/Main/PokemonCard';
+import { ErrorSkeleton, LoadingSkeleton } from 'components/Main/Skeleton';
 import PokemonBall from 'assets/PokemonBall2.png';
 import PokemonLogo from 'assets/PokemonLogo.png';
 import { POKEMON } from 'constants/pokemon';
+// import { usePokemon } from 'hooks/usePokemon';
+
+// interface Props {
+//   isRefresh?: boolean;
+//   fallback: React.ElementType;
+//   children: ReactNode;
+//   onReset?: () => void;
+//   message?: string;
+// }
 
 export default function Main() {
   const [input, setInput] = useState<string>('');
@@ -25,7 +37,6 @@ export default function Main() {
 
   const onClickPokemon = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
-    // POKEMON에서 id만 추출
     const pokemon = Object.entries(POKEMON).map((pokemon) => {
       return pokemon[1].ID;
     });
@@ -42,6 +53,8 @@ export default function Main() {
     setOpenSelector((prev) => !prev);
   };
 
+  const { reset } = useQueryErrorResetBoundary();
+
   const image = Object.entries(POKEMON).map((pokemon) => {
     return localStorage.getItem(pokemon[1].ID)
       ? pokemon[1].COLOR_IMAGE
@@ -52,7 +65,11 @@ export default function Main() {
     <Layout>
       <Contents>
         <Search input={input} onChange={onChange} onSubmit={onSubmit} />
-        <PokemonCard id={id} onClickPokemon={onClickPokemon} />
+        <ErrorBoundary key={id} onReset={reset} fallback={<ErrorSkeleton />}>
+          <Suspense fallback={<LoadingSkeleton />}>
+            <PokemonCard id={id} onClickPokemon={onClickPokemon} />
+          </Suspense>
+        </ErrorBoundary>
       </Contents>
       {openSelector && (
         <Selector>
