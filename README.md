@@ -1,6 +1,9 @@
-# Pokémon Collector (2022/12/3 ~ 2022/12/5)
+# Pokémon Collector
 
 ![Pokémon](https://user-images.githubusercontent.com/64428916/205648556-8b6c1792-a960-4317-8605-5fcf5b6e3c20.gif)
+
+## Period
+2022/12/03 ~ 2022/12/05
 
 ## Summary
 
